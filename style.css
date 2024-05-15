@@ -1,0 +1,26 @@
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#statement {
+    display: flex;
+    flex-direction: row;
+    height: 300px;
+    gap: 500px;
+}
+
+table {
+
+}
+
+tr {
+    display: flex;
+    gap: 200px;
+    padding-top: 100px;
+}
+
+/* tr:hover {
+    background-color: #D6EEEE;
+} */
