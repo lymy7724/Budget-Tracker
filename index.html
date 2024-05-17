@@ -8,31 +8,38 @@
 </head>
 <body>
     <h1>Budget Tracker</h1>
-    <form>
-        <input type="text" placeholder="Income Name">
-        <input type="number" placeholder="Amount">
-        <button>Add Income</button>
-    </form>
-    <form>
-        <input type="text" placeholder="Expense Name">
-        <input type="number" placeholder="Amount">
-        <button>Add Expense</button>
-    </form>
+        <div class="main-container">
+            <div>
+                <input type="date" id="date">
+                <input type="text" placeholder="Income Name" id="income">
+                <input type="number" placeholder="Amount" id="incomeAmount">
+                <button onclick="addIncomeClick()">Add Income</button>
+            </div>
+            <div>
+                <input type="date" id="date2">
+                <input type="text" placeholder="Expense Name" id="expense">
+                <input type="number" placeholder="Amount" id="expenseAmount">
+                <button onclick="addExpenseClick()">Add Expense</button>
+            </div>
+        </div>
     <div id="statement">
-        <table>
-            <tr>
-              <th>Income Name</th>
-              <th>Amount</th>
-            </tr>
-          </table>
-          <table>
-            <tr>
-              <th>Expense Name</th>
-              <th>Amount</th>
-            </tr>
-          </table>
+        <div id="incomeTable">
+            <div class="income-title">
+                <h4>Date</h4>
+              <h4>Income Name</h4>
+              <h4>Amount</h4>
+            </div>
+        </div>
+          <div id="expenseTable">
+            <div class="expense-title">
+                <h4>Date</h4>
+              <h4>Expense Name</h4>
+              <h4>Amount</h4>
+            </div>
+            </div>
+    
     </div>
-    <h5>Total:</h5>
+    <h5>Balance:</h5><p id="total" >0</p>
     
 
 

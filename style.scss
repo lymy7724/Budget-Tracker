@@ -1,0 +1,30 @@
+$primaryBtn: rgba(126, 220, 126, 0.564);
+$primaryFont: Verdana;
+@mixin flexCenter($direction) {
+    display: flex;
+    justify-content: center;
+    flex-direction: $direction;
+}
+
+body {
+    @include flexCenter(column);
+    font-family: $primaryFont;
+}
+
+#statement {
+    @include flexCenter(row);
+    padding: 50px;
+    gap: 400px;
+}
+
+button {
+    border-radius: 0;
+    background-color: $primaryBtn;
+    border: none;
+}
+
+.income-title, .expense-title {
+    @include flexCenter(row);
+    gap: 100px;
+    font-weight: normal;
+}
