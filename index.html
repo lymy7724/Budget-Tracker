@@ -7,15 +7,19 @@
     <title>Budget Tracker</title>
 </head>
 <body>
-    <h1>Budget Tracker</h1>
+    <div class="h1-wrapper">
+        <div>
+        <h1>Budget Tracker</h1>
+        </div>
+    </div>
         <div class="main-container">
-            <div>
+            <div class="income-cont">
                 <input type="date" id="date">
                 <input type="text" placeholder="Income Name" id="income">
                 <input type="number" placeholder="Amount" id="incomeAmount">
                 <button onclick="addIncomeClick()">Add Income</button>
             </div>
-            <div>
+            <div class="expense-cont">
                 <input type="date" id="date2">
                 <input type="text" placeholder="Expense Name" id="expense">
                 <input type="number" placeholder="Amount" id="expenseAmount">
@@ -24,22 +28,29 @@
         </div>
     <div id="statement">
         <div id="incomeTable">
-            <div class="income-title">
-                <h4>Date</h4>
-              <h4>Income Name</h4>
-              <h4>Amount</h4>
+            <div class="titlewrapper">
+                <div class="income-title">
+                    <h4 style="font-weight: bold; color: rgb(253, 251, 251);">Date</h4>
+                    <h4 style="font-weight: bold; color: rgb(253, 251, 251)">Income Name</h4>
+                    <h4 style="font-weight: bold; color: rgb(253, 251, 251)">Amount</h4>
+                </div>
             </div>
         </div>
-          <div id="expenseTable">
-            <div class="expense-title">
-                <h4>Date</h4>
-              <h4>Expense Name</h4>
-              <h4>Amount</h4>
+        <div id="expenseTable">
+            <div class="titlewrapper">
+                <div class="expense-title">
+                    <h4 style="font-weight: bold; color: rgb(253, 251, 251)">Date</h4>
+                    <h4 style="font-weight: bold; color: rgb(253, 251, 251)">Expense Name</h4>
+                    <h4 style="font-weight: bold; color: rgb(253, 251, 251)">Amount</h4>
+                </div>
             </div>
-            </div>
+        </div>
     
     </div>
-    <h5>Balance:</h5><p id="total" >0</p>
+    <div class="balance">
+        <h5>Balance:</h5>
+        <p id="total" >0</p>
+    </div>
     
 
 

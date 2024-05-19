@@ -13,11 +13,11 @@ class Budget {
     this.income = [];
     this.expenses = [];
   }
-
+  // add income method that will add user inputs to the array
   addIncome(date, description, amount) {
     this.income.push({ date: date, description: description, amount: amount });
   }
-
+  // add expense method that will add user expenses to the array
   addExpense(date, description, amount) {
     this.expenses.push({
       date: date,
@@ -25,7 +25,7 @@ class Budget {
       amount: amount,
     });
   }
-
+  // method to calculate total balance of income
   getTotalIncome() {
     let totalIncomeAmount = 0;
     this.income.forEach((element) => {
@@ -33,7 +33,7 @@ class Budget {
     });
     return totalIncomeAmount;
   }
-
+  // method to calculate the total balance of expenses
   getTotalExpense() {
     let totalExpenseAmount = 0;
     this.expenses.forEach((element) => {
@@ -41,11 +41,9 @@ class Budget {
     });
     return totalExpenseAmount;
   }
-
+  // method that will calculate the total balance
   getTotalBalance() {
     let a = this.getTotalIncome() - this.getTotalExpense();
-    console.log(this.getTotalIncome());
-    console.log(this.getTotalExpense());
     return a;
   }
 }
@@ -56,14 +54,17 @@ function addIncomeClick() {
   let name = incomeName.value;
   let amount = incomeAmount.value;
   let currentDate = date.value;
+  // if there is not a date, name, or amount entered, there will be an error message
   if (!currentDate || !name || !amount) {
     alert("Please fill out all fields.");
     return;
   }
+  // if user inputs a negative amount, there will be an error message
   if (Math.sign(amount) == -1) {
     alert("Amount cannot be negative.");
     return;
   }
+  // displays what the user has inputted onto the html
   document.getElementById("incomeTable").innerHTML += `
     <div class="income-title">
     <h4>${currentDate}</h4>
@@ -72,11 +73,17 @@ function addIncomeClick() {
     </div>
             `;
   budget.addIncome(date, name, amount);
+  // this clears the input once user clicks the button to submit entry
   date.value = "";
   incomeName.value = "";
   incomeAmount.value = "";
-  document.getElementById("total").innerText = budget.getTotalBalance();
-  console.log("the total income is " + budget.getTotalIncome());
+  // if total balance is positive, it will be green. if total balance is negative, it will turn red.
+  if (Math.sign(budget.getTotalBalance()) == -1) {
+    document.getElementById("total").className = "red";
+  } else {
+    document.getElementById("total").className = "green";
+  }
+  document.getElementById("total").innerText = "$" + budget.getTotalBalance();
 }
 
 function addExpenseClick() {
@@ -102,6 +109,10 @@ function addExpenseClick() {
   date2.value = "";
   expenseName.value = "";
   expenseAmount.value = "";
-  document.getElementById("total").innerText = budget.getTotalBalance();
-  console.log("the total expense is " + budget.getTotalExpense());
+  if (Math.sign(budget.getTotalBalance()) == -1) {
+    document.getElementById("total").className = "red";
+  } else {
+    document.getElementById("total").className = "green";
+  }
+  document.getElementById("total").innerText = "$" + budget.getTotalBalance();
 }
